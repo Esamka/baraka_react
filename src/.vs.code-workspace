@@ -1,0 +1,19 @@
+{
+	"folders": [
+		{
+			"path": "../.vs"
+		},
+		{
+			"path": "../imgs"
+		},
+		{
+			"path": "../node_modules"
+		},
+		{
+			"path": "../public"
+		},
+		{
+			"path": "."
+		}
+	]
+}
