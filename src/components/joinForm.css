@@ -249,3 +249,19 @@
   color: var(--accent-color) !important;
 }
 
+
+.btn-next-page-container {
+  display: flex;
+  justify-content: center; 
+  align-items: center;     
+
+}
+
+.btn-next-page {
+  padding: 10px 20px;
+  background-color: #4c2d82;
+  color: #fff;
+  border-radius: 5px;
+  text-decoration: none;
+  font-weight: bold;
+}

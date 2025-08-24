@@ -14,6 +14,8 @@ import Stepper from '@mui/material/Stepper';
 import Step from '@mui/material/Step';
 import StepLabel from '@mui/material/StepLabel';
 import Button from '@mui/material/Button';
+import { Link } from 'react-router-dom';
+
 
 const steps = [
   'البيانات الشخصية', 
@@ -225,55 +227,65 @@ const Form = () => {
   };
 
   return (
-    <main className="main-form-container">
-      <div className="form-card">
-        <p className="form-description">
-          لإرسال طلب انضمام لفريق المنتجين الرجاء تعبئة البيانات التالية
-        </p>
+   <main className="main-form-container">
+  <div className="form-card">
 
-        <Stepper activeStep={activeStep} alternativeLabel className="custom-stepper">
-          {steps.map((label) => (
-            <Step key={label}>
-              <StepLabel>{label}</StepLabel>
-            </Step>
-          ))}
-        </Stepper>
+    {/* زر الانتقال للصفحة الثانية */}
+    <div className="btn-next-page-container">
+      <Link to="/second" className="btn-next-page">
+        عرض الصفحة الثانية
+      </Link>
+    </div>
 
-        <form onSubmit={formik.handleSubmit}>
-          {renderStepContent(activeStep)}
 
-          <div className="button-actions">
-            <Button
-              className="back-button"
-              disabled={activeStep === 0}
-              onClick={handleBack}
-            >
-              الرجوع
-            </Button>
-            {activeStep === steps.length - 1 ? (
-              <Button
-                variant="contained"
-                color="primary"
-                type="submit"
-                className="submit-button"
-                disabled={formik.isSubmitting}
-              >
-                إرسال الطلب
-              </Button>
-            ) : (
-              <Button
-                variant="contained"
-                color="primary"
-                onClick={handleNext}
-                className="next-button"
-              >
-                التالي
-              </Button>
-            )}
-          </div>
-        </form>
+    <p className="form-description">
+      لإرسال طلب انضمام لفريق المنتجين الرجاء تعبئة البيانات التالية
+    </p>
+
+    <Stepper activeStep={activeStep} alternativeLabel className="custom-stepper">
+      {steps.map((label) => (
+        <Step key={label}>
+          <StepLabel>{label}</StepLabel>
+        </Step>
+      ))}
+    </Stepper>
+
+    <form onSubmit={formik.handleSubmit}>
+      {renderStepContent(activeStep)}
+
+      <div className="button-actions">
+        <Button
+          className="back-button"
+          disabled={activeStep === 0}
+          onClick={handleBack}
+        >
+          الرجوع
+        </Button>
+        {activeStep === steps.length - 1 ? (
+          <Button
+            variant="contained"
+            color="primary"
+            type="submit"
+            className="submit-button"
+            disabled={formik.isSubmitting}
+          >
+            إرسال الطلب
+          </Button>
+        ) : (
+          <Button
+            variant="contained"
+            color="primary"
+            onClick={handleNext}
+            className="next-button"
+          >
+            التالي
+          </Button>
+        )}
       </div>
-    </main>
+    </form>
+  </div>
+</main>
+
   );
 };
 

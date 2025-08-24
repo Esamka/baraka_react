@@ -1,6 +1,7 @@
 import React from 'react';
 import './MainBox.css'; // لو حابب تعمل ستايل منفصل
 
+
 function MainBox() {
   return (
     <div className="main-box">

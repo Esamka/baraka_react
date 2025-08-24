@@ -1,20 +1,23 @@
-// src/App.js
 import React from 'react';
-import './App.css';
-import Header from './components/header';
-import Footer from './components/footer';
-import Form from './components/joinForm';
-import MainBox from './components/MainBox';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import Layout from './components/Layout';
+import HomePage from './pages/HomePage';
+import SecondPage from './pages/SecondPage';
 
 function App() {
   return (
-    <div className="App">
-      <div className="header-spacer"></div>
-      <Header />
-      <MainBox />
-      <Form />
-      <Footer />
-    </div>
+    <Router>
+      <Routes>
+        <Route 
+          path="/" 
+          element={<Layout><HomePage /></Layout>} 
+        />
+        <Route 
+          path="/second" 
+          element={<Layout><SecondPage /></Layout>} 
+        />
+      </Routes>
+    </Router>
   );
 }
 
